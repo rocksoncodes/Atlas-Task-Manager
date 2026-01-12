@@ -52,7 +52,32 @@ Open your browser and go to:
 ```
 http://localhost:4200
 ```
-# Backend: Flask API (Task CRUD)
+## Database Setup
+
+The backend API uses **SQLAlchemy** and requires a database to store tasks. By default, it can use **SQLite** for development.
+
+#### 1. Create the database
+
+If using SQLite (simplest for local development):
+
+```bash
+# Inside your backend folder
+python
+>>> from database.database import database_engine
+>>> from database.models import Base
+>>> Base.metadata.create_all(bind=database_engine)
+```
+This will create the database file (e.g., tasks.db) and all required tables.
+
+#### 2. Optional: Use another database
+
+You can configure database/database.py to use PostgreSQL, MySQL, or another database by updating the connection URL:
+```
+# Example for PostgreSQL
+DATABASE_URL = "postgresql+psycopg2://user:password@localhost:5432/taskdb"
+```
+
+## Backend: Flask API (Task CRUD)
 
 The backend provides a CRUD API for tasks using Flask and SQLAlchemy. Endpoints are registered under /api/tasks.
 
@@ -108,13 +133,13 @@ POST `/api/tasks/create/task`
 }
 ```
 
-# Development Notes
+## Development Notes
 
 - The app and API are under active development so features may be incomplete or subject to change.
 - Contributions and suggestions are welcome. Please fork the repository and submit pull requests.
 - If you encounter issues with dependencies, try removing `node_modules` and running `npm install` again.
 
-# Future Features (Planned)
+## Future Features (Planned)
 
 - Add, edit, and delete tasks
 - Task prioritization and deadlines
