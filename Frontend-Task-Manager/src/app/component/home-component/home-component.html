@@ -12,7 +12,11 @@
     </div>
 
     @if (showForm) {
-      <app-input-card-component (click)="hideModal()"></app-input-card-component>
+      <div class="modal-backdrop">
+        <app-input-card-component
+        (closeModal)="onCloseModal($event)"
+        ></app-input-card-component>
+      </div>
     }
 
   </div>
