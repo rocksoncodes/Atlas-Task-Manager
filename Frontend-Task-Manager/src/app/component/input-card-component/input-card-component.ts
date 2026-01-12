@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -8,5 +10,11 @@ import { Component } from '@angular/core';
   styleUrl: './input-card-component.css',
 })
 export class InputCardComponent {
+
+  @Output() closeModal = new EventEmitter<boolean>();
+
+  closeModalButton() {
+    this.closeModal.emit(false);
+  }
 
 }

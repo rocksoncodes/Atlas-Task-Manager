@@ -48,7 +48,7 @@ export class HomeComponent {
     console.log("showModal activated");
   }
 
-  hideModal() {
-    this.showForm = false;
+  onCloseModal(value: boolean) {
+    this.showForm = value;
   }
 }
