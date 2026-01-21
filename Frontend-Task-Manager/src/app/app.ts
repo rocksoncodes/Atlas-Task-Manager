@@ -33,7 +33,6 @@ export class App implements OnInit {
   getAllTasks():void {
     this.http.get<any[]>(this.apiUrl + 'get/tasks/all').subscribe(data => {
       this.tasks = data;
-      console.log('Tasks loaded:', this.tasks)
     });
   }
 

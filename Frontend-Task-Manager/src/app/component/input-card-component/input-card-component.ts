@@ -42,11 +42,10 @@ export class InputCardComponent {
       completed: this.isCompleted
     };
 
-    this.http.post(this.apiUrl + "create/task", payload).subscribe(response => {
-      console.log("Success", response);
-    });
-
-    this.closeModal.emit(false);
+    this.http.post(`${this.apiUrl}create/task`, payload)
+      .subscribe({
+        complete: () => this.closeModal.emit(false),
+      });
   }
 
 }
